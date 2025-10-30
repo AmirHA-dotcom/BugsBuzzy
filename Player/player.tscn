@@ -25,6 +25,12 @@ surface_material_override/0 = SubResource("StandardMaterial3D_l8h54")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00753057, 0)
 shape = SubResource("CapsuleShape3D_l8h54")
 
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+light_energy = 5.0
+light_volumetric_fog_energy = 16.0
+spot_range = 0.456
+spot_angle = 30.0
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.76828367, 0.6401098, 0, -0.6401098, 0.76828367, 0.056872845, 7.4958687, 4.703599)
 
