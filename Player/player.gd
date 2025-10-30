@@ -88,7 +88,7 @@ func _try_spawn_ability() -> void:
 # Find a nice placement on the floor below the player (so it’s not inside the capsule)
 func _ground_position_under_player() -> Vector3:
 	var from: Vector3 = global_transform.origin + Vector3(0, 1.5, 0)
-	var to: Vector3 = from + Vector3(0, -6.0, 0)
+	var to: Vector3 = from + Vector3(0, 10, 0)
 	var params := PhysicsRayQueryParameters3D.create(from, to)
 	params.exclude = [self]
 	var hit := get_world_3d().direct_space_state.intersect_ray(params)
