@@ -4,7 +4,9 @@ extends CharacterBody3D
 
 @export var	 player_id = 1
 
-const SPEED = 7.0
+
+const SPEED = 10.0
+
 const JUMP_VELOCITY = 4.5
 const ROTATION_SPEED = 3.0 # Speed at which the player rotates when pressing Q/E
 
