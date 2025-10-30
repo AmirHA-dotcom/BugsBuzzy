@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0t530j5kq2v8"]
+
+[ext_resource type="Script" path="res://ghost/imposter.gd" id="1_6vhlc"]
+[ext_resource type="PackedScene" path="res://ghost/ghost.glb" id="2_7igin"]
+
+[sub_resource type="PlaceholderMesh" id="PlaceholderMesh_o8hm7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_disie"]
+radius = 0.4140625
+height = 1.5656738
+
+[node name="Imposter" type="CharacterBody3D"]
+script = ExtResource("1_6vhlc")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_7igin")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaceholderMesh_o8hm7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 2.12462, 0)
+shape = SubResource("CapsuleShape3D_disie")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
