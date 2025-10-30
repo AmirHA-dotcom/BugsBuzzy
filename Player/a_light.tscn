@@ -15,6 +15,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_rfum1")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+layers = 9
 light_color = Color(0.7611223, 0, 0.16879809, 1)
 light_energy = 16.0
 light_indirect_energy = 9.483
@@ -22,6 +23,7 @@ omni_range = 10.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+layers = 9
 light_color = Color(0.7611223, 0, 0.16879809, 1)
 light_energy = 15.0
 light_indirect_energy = 9.483
