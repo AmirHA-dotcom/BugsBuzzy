@@ -15,6 +15,10 @@ run/main_scene="uid://1xfvj1p7ev1x"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*res://Scripts/GameManager.gd"
+
 [input]
 
 ui_left={
