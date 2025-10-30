@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3n3glpy1xsd5"]
+
+[sub_resource type="Environment" id="Environment_s1o25"]
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource("Environment_s1o25")
