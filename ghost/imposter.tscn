@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwm1yjg1qyvac"]
+[gd_scene load_steps=6 format=3 uid="uid://dwm1yjg1qyvac"]
 
 [ext_resource type="PackedScene" uid="uid://bld6tk7dann67" path="res://ghost/ghost.glb" id="1_h0eoi"]
 [ext_resource type="Script" uid="uid://dt8jgcxrq8lda" path="res://ghost/imposter.gd" id="1_o8hm7"]
+[ext_resource type="Script" uid="uid://um06s3royfpo" path="res://Map/trap.gd" id="3_disie"]
 
 [sub_resource type="PlaceholderMesh" id="PlaceholderMesh_o8hm7"]
 
@@ -20,9 +21,19 @@ transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4362574, 0)
 mesh = SubResource("PlaceholderMesh_o8hm7")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(4.9999995, 0, 0, 0, 4.9999995, 0, 0, 0, 4.9999995, 0, 2.12462, 0)
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 20527
+collision_mask = 15
+script = ExtResource("3_disie")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 2.12462, 0)
 shape = SubResource("CapsuleShape3D_disie")
 debug_color = Color(0.7631094, 0.4041384, 0.5331363, 0.41960785)
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(4.9999986, 0, 0, 0, 4.9999986, 0, 0, 0, 4.9999986, 0, 2.12462, 0)
+shape = SubResource("CapsuleShape3D_disie")
+debug_color = Color(0.7631094, 0.4041384, 0.5331363, 0.41960785)
