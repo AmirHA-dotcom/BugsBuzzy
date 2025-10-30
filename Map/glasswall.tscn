@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2lq57pg6hrb6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_41n11"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_oy5ar"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ojgbx"]
+transparency = 1
+albedo_color = Color(0.627451, 0.8117647, 1, 0.3019608)
+metallic = 0.42
+metallic_specular = 0.8
+roughness = 0.1
+clearcoat_enabled = true
+clearcoat_roughness = 0.1
+refraction_enabled = true
+refraction_scale = 0.03
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fx7mh"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[node name="glasswall" type="StaticBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_41n11")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 5, 0, 0, 0, 1, 0, 2.5, 0)
+mesh = SubResource("BoxMesh_oy5ar")
+surface_material_override/0 = SubResource("StandardMaterial3D_ojgbx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 5, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("ConvexPolygonShape3D_fx7mh")

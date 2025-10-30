@@ -1,12 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://1xfvj1p7ev1x"]
+[gd_scene load_steps=9 format=3 uid="uid://bjnuhgq3sumdb"]
 
 [ext_resource type="PackedScene" uid="uid://chwnd3cftco3p" path="res://Map/floor.tscn" id="1_kh0yo"]
 [ext_resource type="PackedScene" uid="uid://dd3yne4nsjp6u" path="res://Map/wall.tscn" id="2_i1awr"]
 [ext_resource type="PackedScene" uid="uid://cq3n4hchfl5v5" path="res://Map/trap.tscn" id="3_35vgc"]
 [ext_resource type="PackedScene" uid="uid://ctaknjncpv3em" path="res://Map/FallTrap.tscn" id="4_bvni8"]
 [ext_resource type="PackedScene" uid="uid://d01ykwgu2i8xg" path="res://Player/player.tscn" id="5_b73pd"]
-[ext_resource type="PackedScene" uid="uid://1euwhhrkb7il" path="res://Map/win_point1.tscn" id="6_fa28u"]
-[ext_resource type="PackedScene" uid="uid://cgm8q2qvy4vx" path="res://Map/win_point2.tscn" id="7_p1rog"]
+[ext_resource type="PackedScene" uid="uid://d2lq57pg6hrb6" path="res://Map/glasswall.tscn" id="7_kh0yo"]
+[ext_resource type="PackedScene" path="res://Map/win_point2.tscn" id="7_p1rog"]
 
 [sub_resource type="Environment" id="Environment_7dr2q"]
 volumetric_fog_enabled = true
@@ -25,6 +25,7 @@ environment = SubResource("Environment_7dr2q")
 transform = Transform3D(1, 0, 0, 0, 0.53358495, 0.84574646, 0, -0.84574646, 0.53358495, 0, 0, 0)
 
 [node name="wall" parent="." instance=ExtResource("2_i1awr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.8369336)
 
 [node name="Trap" parent="." instance=ExtResource("3_35vgc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8027365, 0.0059845448, -1.5025456)
@@ -77,12 +78,25 @@ size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="Player2" parent="Control/HBoxContainer/SubViewportContainer2/SubViewport" instance=ExtResource("5_b73pd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5610292, 0.8142977, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.263363, 0.8142977, 0)
 collision_layer = 4
 player_id = 2
 
-[node name="Win_Point1" parent="." instance=ExtResource("6_fa28u")]
+[node name="Win_Point1" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(3.865, 0, 0, 0, 3.865, 0, 0, 0, 3.865, 4.6601977, 0.8833017, 0.67069215)
+script = null
 
 [node name="Win_Point2" parent="." instance=ExtResource("7_p1rog")]
 transform = Transform3D(5.75, 0, 0, 0, 5.75, 0, 0, 0, 5.75, 7.5777917, 0.9478424, -2.2511606)
+
+[node name="glasswall" parent="." instance=ExtResource("7_kh0yo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.485922, 0, 0)
