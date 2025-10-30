@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dd3yne4nsjp6u" path="res://Map/wall.tscn" id="3_wussv"]
 [ext_resource type="PackedScene" uid="uid://1euwhhrkb7il" path="res://Map/win_point.tscn" id="4_qomno"]
 [ext_resource type="PackedScene" uid="uid://cq3n4hchfl5v5" path="res://Map/trap.tscn" id="5_ycy7t"]
+[ext_resource type="PackedScene" path="res://Map/wall.tscn" id="3_wussv"]
 
 [sub_resource type="Environment" id="Environment_7dr2q"]
 volumetric_fog_enabled = true
@@ -16,9 +17,6 @@ volumetric_fog_albedo = Color(0.3403393, 0.34033936, 0.34033918, 1)
 [node name="floor" parent="." instance=ExtResource("1_7m6t5")]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
 
-[node name="Player" parent="." instance=ExtResource("2_7dr2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0484784, 0)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7dr2q")
 
@@ -26,10 +24,57 @@ environment = SubResource("Environment_7dr2q")
 transform = Transform3D(1, 0, 0, 0, 0.53358495, 0.84574646, 0, -0.84574646, 0.53358495, 0, 0, 0)
 
 [node name="wall" parent="." instance=ExtResource("3_wussv")]
-transform = Transform3D(22.39559, 0, 0, 0, 1, 0, 0, 0, 1, -0.26159146, 0.015872002, -4.516988)
 
 [node name="Win_Point" parent="." instance=ExtResource("4_qomno")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 10.616684, 1.509275, 2.9461403)
 
 [node name="Trap" parent="." instance=ExtResource("5_ycy7t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8027365, 0.0059845448, -1.5025456)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7452594, 0.015872955, 4.1105967)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Control/HBoxContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(574, 648)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Player1" parent="Control/HBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("2_7dr2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0484784, 0)
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Control/HBoxContainer/SubViewportContainer2"]
+handle_input_locally = false
+size = Vector2i(574, 648)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Player2" parent="Control/HBoxContainer/SubViewportContainer2/SubViewport" instance=ExtResource("2_7dr2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5610292, 0.8142977, 0)
+player_id = 2
