@@ -33,7 +33,6 @@ spot_angle = 30.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.76828367, 0.6401098, 0, -0.6401098, 0.76828367, 0.056872845, 7.4958687, 4.703599)
-cull_mask = 0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44058394, 0)

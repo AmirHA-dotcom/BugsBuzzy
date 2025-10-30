@@ -11,11 +11,11 @@ const JUMP_VELOCITY = 4.5
 const ROTATION_SPEED = 3.0 # Speed at which the player rotates when pressing Q/E
 
 func _ready() -> void:
+	camera.cull_mask = 0;
+	camera.set_cull_mask_value(1, true);
 	if player_id == 1 :
-		camera.set_cull_mask_value(1, true);
 		camera.set_cull_mask_value(2, true);
 	elif  player_id == 2 :
-		camera.set_cull_mask_value(1, true);
 		camera.set_cull_mask_value(3, true);
 	
 
