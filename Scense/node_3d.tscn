@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://1xfvj1p7ev1x"]
+[gd_scene load_steps=8 format=3 uid="uid://1xfvj1p7ev1x"]
 
 [ext_resource type="PackedScene" uid="uid://chwnd3cftco3p" path="res://Map/floor.tscn" id="1_7m6t5"]
 [ext_resource type="PackedScene" uid="uid://d01ykwgu2i8xg" path="res://Player/player.tscn" id="2_7dr2q"]
 [ext_resource type="PackedScene" uid="uid://dd3yne4nsjp6u" path="res://Map/wall.tscn" id="3_wussv"]
 [ext_resource type="PackedScene" uid="uid://1euwhhrkb7il" path="res://Map/win_point.tscn" id="4_qomno"]
 [ext_resource type="PackedScene" uid="uid://cq3n4hchfl5v5" path="res://Map/trap.tscn" id="5_ycy7t"]
+[ext_resource type="PackedScene" uid="uid://ctaknjncpv3em" path="res://Map/FallTrap.tscn" id="6_akrxb"]
 
 [sub_resource type="Environment" id="Environment_7dr2q"]
 volumetric_fog_enabled = true
@@ -33,3 +34,6 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 10.616684, 1.509275, 2.946
 
 [node name="Trap" parent="." instance=ExtResource("5_ycy7t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8027365, 0.0059845448, -1.5025456)
+
+[node name="FallTrap" parent="." instance=ExtResource("6_akrxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.136252, 0.016440094, -1.1265135)
