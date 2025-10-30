@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://3d74qnrlxlke"]
+[gd_scene load_steps=5 format=3 uid="uid://3d74qnrlxlke"]
 
 [ext_resource type="PackedScene" uid="uid://chwnd3cftco3p" path="res://Map/floor.tscn" id="1_mg54o"]
-[ext_resource type="PackedScene" path="res://Map/wall.tscn" id="2_608ik"]
+[ext_resource type="PackedScene" uid="uid://dd3yne4nsjp6u" path="res://Map/wall.tscn" id="2_608ik"]
 [ext_resource type="PackedScene" uid="uid://d01ykwgu2i8xg" path="res://Player/player.tscn" id="3_608ik"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_608ik"]
 
 [node name="first_maze" type="Node3D"]
 
@@ -296,3 +298,6 @@ transform = Transform3D(-8.742278e-08, 0, -1, 0, 2, 0, 2, 0, -4.371139e-08, 80, 
 
 [node name="Player" parent="." instance=ExtResource("3_608ik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.06359, 5.716955, -38.02712)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_608ik")
