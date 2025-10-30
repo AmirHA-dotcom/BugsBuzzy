@@ -10,7 +10,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -23.357801)
 [node name="NavigationRegion3D" parent="." instance=ExtResource("1_a0tk4")]
 
 [node name="Player" parent="." instance=ExtResource("2_r3fl7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.506035, 0, -35.673317)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.01065, 0, -22.825697)
 
 [node name="Imposter" parent="." instance=ExtResource("3_jka67")]
-transform = Transform3D(0.97720426, -0.011301001, 0.21200144, 0.011998478, 0.999926, -0.002003766, -0.21196333, 0.004501784, 0.9772675, 11.144126, 0, -21.586336)
+transform = Transform3D(1.0000002, 0, 0, 0, 0.9999999, 0, 0, 0, 1.0000001, 36.242645, 0.9812083, -34.990265)
