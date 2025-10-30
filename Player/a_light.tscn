@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvn4rremg74fx"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_7cvia"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rfum1"]
+albedo_color = Color(18.892, 18.892, 0, 1)
+emission_enabled = true
+emission = Color(12.55355, 10.581538, 0, 1)
+emission_energy_multiplier = 15.0
+
+[node name="A_Light" type="MeshInstance3D"]
+mesh = SubResource("SphereMesh_7cvia")
+surface_material_override/0 = SubResource("StandardMaterial3D_rfum1")

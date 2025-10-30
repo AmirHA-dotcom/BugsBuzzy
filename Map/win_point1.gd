@@ -1,7 +1,7 @@
 # WinPoint.gd
 extends Area3D
 
-@export var target_player_id: int = 1
+var target_player_id: int = 1
 signal player_won(player_id: int)
 
 func _ready() -> void:
