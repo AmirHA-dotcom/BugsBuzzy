@@ -1,13 +1,23 @@
 #Player Controller
+class_name Player
 extends CharacterBody3D
 
 @export var	 player_id = 1
-
+@onready var camera = $Camera3D
 
 const SPEED = 10.0
 
 const JUMP_VELOCITY = 4.5
 const ROTATION_SPEED = 3.0 # Speed at which the player rotates when pressing Q/E
+
+func _ready() -> void:
+	if player_id == 1 :
+		camera.set_cull_mask_value(1, true);
+		camera.set_cull_mask_value(2, true);
+	elif  player_id == 2 :
+		camera.set_cull_mask_value(1, true);
+		camera.set_cull_mask_value(3, true);
+	
 
 func _physics_process(delta: float) -> void:
 	# Add gravity.

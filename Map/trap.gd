@@ -1,10 +1,11 @@
+# Trap.gd
 extends Area3D
 
 func _ready() -> void:
-	# Safer than relying on editor wiring:
 	body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node) -> void:
-	# Adjust the name/class check to your player
-	if body is CharacterBody3D and body.name == "Player":
-		print("You Are Dead!")
+	if body is Player:                      # catches BOTH players
+		print("Player %d died!" % body.player_id)
+		# If you have respawn:
+		# body.respawn_to_checkpoint()
