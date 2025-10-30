@@ -1,4 +1,5 @@
 #Player Controller
+class_name Player
 extends CharacterBody3D
 
 @export var	 player_id = 1
