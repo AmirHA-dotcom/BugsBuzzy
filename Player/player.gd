@@ -1,5 +1,7 @@
+#Player Controller
 extends CharacterBody3D
 
+@export var	 player_id = 1
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const ROTATION_SPEED = 3.0 # Speed at which the player rotates when pressing Q/E
@@ -14,7 +16,12 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle movement/deceleration.
-	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_dir := Vector2.ZERO
+	
+	if player_id == 1:
+		input_dir = Input.get_vector("p1_move_left", "p1_move_right", "p1_move_up", "p1_move_down");
+	elif player_id == 2:
+		input_dir = Input.get_vector("p2_move_left", "p2_move_right", "p2_move_up", "p2aadasa_move_down");
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
 	if direction:

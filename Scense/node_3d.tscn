@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://chwnd3cftco3p" path="res://Map/floor.tscn" id="1_7m6t5"]
 [ext_resource type="PackedScene" uid="uid://d01ykwgu2i8xg" path="res://Player/player.tscn" id="2_7dr2q"]
-[ext_resource type="PackedScene" uid="uid://dd3yne4nsjp6u" path="res://Map/wall.tscn" id="3_wussv"]
+[ext_resource type="PackedScene" path="res://Map/wall.tscn" id="3_wussv"]
 
 [sub_resource type="Environment" id="Environment_7dr2q"]
 volumetric_fog_enabled = true
@@ -14,7 +14,7 @@ volumetric_fog_albedo = Color(0.3403393, 0.34033936, 0.34033918, 1)
 [node name="floor" parent="." instance=ExtResource("1_7m6t5")]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
 
-[node name="Player" parent="." instance=ExtResource("2_7dr2q")]
+[node name="Player1" parent="." instance=ExtResource("2_7dr2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0484784, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -26,3 +26,7 @@ visible = false
 
 [node name="wall" parent="." instance=ExtResource("3_wussv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7452594, 0.015872955, 4.1105967)
+
+[node name="Player2" parent="." instance=ExtResource("2_7dr2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5610292, 0.8142977, 0)
+player_id = 2
