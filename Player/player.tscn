@@ -5,12 +5,13 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hvfyp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l8h54"]
-albedo_color = Color(0, 0.3715048, 0.3719295, 1)
-metallic = 0.4
+albedo_color = Color(0.63612336, 0.6370951, 0.013807749, 1)
+metallic = 0.1
 metallic_specular = 1.0
 roughness = 0.1
 emission_enabled = true
-emission = Color(4.042983e-06, 0.69146955, 0.91798186, 1)
+emission = Color(0.96862745, 0.80784315, 0.011764706, 1)
+emission_energy_multiplier = 4.75
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l8h54"]
 
@@ -26,7 +27,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00753057, 0)
 shape = SubResource("CapsuleShape3D_l8h54")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
+light_energy = 5.0
 light_volumetric_fog_energy = 16.0
+spot_range = 10.0
 spot_angle = 30.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -34,5 +37,5 @@ transform = Transform3D(0.99999994, 0, 0, 0, 0.76828367, 0.6401098, 0, -0.640109
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44058394, 0)
-light_color = Color(1, 0.48052752, 0.6675544, 1)
-omni_range = 3.0
+light_color = Color(0.80784315, 0.73333335, 0.07450981, 1)
+light_energy = 4.0
