@@ -20,8 +20,16 @@ func _physics_process(delta: float) -> void:
 	
 	if player_id == 1:
 		input_dir = Input.get_vector("p1_move_left", "p1_move_right", "p1_move_up", "p1_move_down");
+		if Input.is_action_pressed("p1_rotate_right"):  
+			rotation.y -= ROTATION_SPEED * delta
+		elif Input.is_action_pressed("p1_rotate_left"): 
+			rotation.y += ROTATION_SPEED * delta
 	elif player_id == 2:
-		input_dir = Input.get_vector("p2_move_left", "p2_move_right", "p2_move_up", "p2aadasa_move_down");
+		input_dir = Input.get_vector("p2_move_left", "p2_move_right", "p2_move_up", "p2_move_down");
+		if Input.is_action_pressed("p2_rotate_right"):  
+			rotation.y -= ROTATION_SPEED * delta
+		elif Input.is_action_pressed("p2_rotate_left"): 
+			rotation.y += ROTATION_SPEED * delta
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
 	if direction:
@@ -31,10 +39,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
-	# Handle rotation with Q and E
-	if Input.is_action_pressed("rotate_right"):  
-		rotation.y -= ROTATION_SPEED * delta
-	elif Input.is_action_pressed("rotate_left"): 
-		rotation.y += ROTATION_SPEED * delta
+	
 
 	move_and_slide()
