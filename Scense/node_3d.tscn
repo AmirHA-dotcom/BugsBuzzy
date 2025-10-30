@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://1xfvj1p7ev1x"]
+[gd_scene load_steps=6 format=3 uid="uid://1xfvj1p7ev1x"]
 
 [ext_resource type="PackedScene" uid="uid://chwnd3cftco3p" path="res://Map/floor.tscn" id="1_7m6t5"]
 [ext_resource type="PackedScene" uid="uid://d01ykwgu2i8xg" path="res://Player/player.tscn" id="2_7dr2q"]
 [ext_resource type="PackedScene" uid="uid://dd3yne4nsjp6u" path="res://Map/wall.tscn" id="3_wussv"]
+[ext_resource type="PackedScene" uid="uid://1euwhhrkb7il" path="res://Map/win_point.tscn" id="4_qomno"]
 
 [sub_resource type="Environment" id="Environment_7dr2q"]
 volumetric_fog_enabled = true
@@ -22,7 +23,9 @@ environment = SubResource("Environment_7dr2q")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.53358495, 0.84574646, 0, -0.84574646, 0.53358495, 0, 0, 0)
-visible = false
 
 [node name="wall" parent="." instance=ExtResource("3_wussv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7452594, 0.015872955, 4.1105967)
+transform = Transform3D(22.39559, 0, 0, 0, 1, 0, 0, 0, 1, -0.26159146, 0.015872002, -4.516988)
+
+[node name="Win_Point" parent="." instance=ExtResource("4_qomno")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 10.616684, 1.509275, 2.9461403)

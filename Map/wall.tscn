@@ -1,10 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd3yne4nsjp6u"]
+[gd_scene load_steps=3 format=3 uid="uid://dd3yne4nsjp6u"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_5skig"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5skig"]
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_slv42"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5skig"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
 
 [node name="wall" type="StaticBody3D"]
@@ -12,8 +10,7 @@ points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(4, 0, 0, 0, 5, 0, 0, 0, 1, 0, 2.5, 0)
 mesh = SubResource("BoxMesh_5skig")
-surface_material_override/0 = SubResource("StandardMaterial3D_5skig")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(4, 0, 0, 0, 5, 0, 0, 0, 1, 0, 2.5, 0)
-shape = SubResource("ConvexPolygonShape3D_slv42")
+shape = SubResource("ConvexPolygonShape3D_5skig")
