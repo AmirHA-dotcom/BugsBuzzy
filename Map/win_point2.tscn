@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgm8q2qvy4vx"]
+[gd_scene load_steps=5 format=3 uid="uid://0abf2fh8yu86"]
 
-[ext_resource type="Script" uid="uid://bu0on7pfkjs6j" path="res://Map/win_point2.gd" id="1_fnm5v"]
+[ext_resource type="Script" path="res://Map/win_point2.gd" id="1_fnm5v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8hbd"]
 metallic = 1.0
@@ -21,6 +21,7 @@ collision_mask = 4
 script = ExtResource("1_fnm5v")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+layers = 4
 mesh = SubResource("TextMesh_j5v7b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
