@@ -5,8 +5,8 @@
 
 [sub_resource type="Environment" id="Environment_7dr2q"]
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.1
-volumetric_fog_albedo = Color(0.24840015, 0.24840018, 0.24840015, 1)
+volumetric_fog_density = 0.2
+volumetric_fog_albedo = Color(0.3403393, 0.34033936, 0.34033918, 1)
 
 [node name="MainLevel" type="Node3D"]
 
