@@ -1,6 +1,6 @@
 extends Control
 
-@export var start_seconds: int = 60
+var start_seconds: int = 480
 var time_left: int
 
 @onready var timer: Timer = $GameTimer
