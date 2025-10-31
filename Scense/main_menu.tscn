@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx17k5rtnswsr"]
+
+[ext_resource type="Script" uid="uid://bb7quce0a6i3t" path="res://Scense/main_menu.gd" id="1_x0dfx"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 2021.0
+offset_bottom = 1081.0
+script = ExtResource("1_x0dfx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 2021.0
+offset_bottom = 1081.0
+color = Color(0.16078432, 0.18039216, 0.25490198, 1)
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.12598
+offset_top = -15.5
+offset_right = 137.12598
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Enter Your code here"
+alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.5
+offset_top = -110.5
+offset_right = 105.5
+offset_bottom = -48.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Strat Game"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_button_pressed"]

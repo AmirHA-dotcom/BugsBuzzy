@@ -157,7 +157,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("5_osm6e")
-start_seconds = 240
+start_seconds = 600
 lose_ui_path = NodePath("Lose UI")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
@@ -297,10 +297,10 @@ label_p2_path = NodePath("../Control/HBoxContainer/SubViewportContainer2/SubView
 win_ui_path = NodePath("Win UI")
 
 [node name="Win_Point3" parent="Game Manager" instance=ExtResource("10_1f35l")]
-transform = Transform3D(3.3053627, 0, 3.302834, 0, 6.844, 0, -3.6280906, 0, 3.0090384, -80.45745, 1.7385075, -75.55416)
+transform = Transform3D(3.3053627, 0, 3.302834, 0, 6.844, 0, -3.6280906, 0, 3.0090384, -80.61261, 1.0484784, -73.13725)
 
 [node name="Win_Point1" parent="Game Manager" instance=ExtResource("9_s3h02")]
-transform = Transform3D(-0.39891016, 0, -4.4532175, 0, 6.844001, 0, 4.891762, 0, -0.36314806, 72.41171, 1.4599051, 76.19068)
+transform = Transform3D(-0.39891016, 0, -4.4532175, 0, 6.844001, 0, 4.891762, 0, -0.36314806, 72.21745, 0.8142977, 76.01582)
 
 [node name="Win UI" parent="Game Manager" instance=ExtResource("14_osm6e")]
 

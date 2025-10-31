@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://b3rshfxawft48" path="res://win_ui.gd" id="1_ex2s4"]
 
 [node name="Win UI" type="CanvasLayer"]
-visible = false
 script = ExtResource("1_ex2s4")
 
 [node name="Control" type="Control" parent="."]
@@ -28,13 +27,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -98.5
-offset_top = -67.5
-offset_right = 76.5
-offset_bottom = -44.5
+offset_left = -118.5
+offset_top = 111.5
+offset_right = 131.5
+offset_bottom = 134.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "You're safe, for NOW..."
+horizontal_alignment = 1
 
 [node name="Restart_Button" type="Button" parent="Control"]
 layout_mode = 1
@@ -52,4 +52,28 @@ grow_vertical = 2
 action_mode = 0
 text = "Restart"
 
+[node name="MainMenu_Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 952.0
+offset_top = 576.0
+offset_right = 1049.0
+offset_bottom = 607.0
+text = "Main Menu"
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.5
+offset_top = -56.5
+offset_right = 87.5
+offset_bottom = -33.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "You're safe, for NOW..."
+
 [connection signal="pressed" from="Control/Restart_Button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Control/MainMenu_Button" to="." method="_on_main_menu_button_pressed"]

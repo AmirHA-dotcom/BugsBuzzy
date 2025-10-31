@@ -6,8 +6,11 @@ extends CanvasLayer
 
 @onready var ctrl: Control = $Control
 @onready var restart_btn: Button = $Control/Restart_Button
+@onready var main_menu_btn: Button = $Control/MainMenu_Button
+
 
 func _ready() -> void:
+	visible = false
 	# Make the whole UI respond while the tree is paused
 	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 	ctrl.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
@@ -18,6 +21,15 @@ func _ready() -> void:
 	restart_btn.mouse_filter = Control.MOUSE_FILTER_STOP
 	if not restart_btn.pressed.is_connected(_on_restart_button_pressed):
 		restart_btn.pressed.connect(_on_restart_button_pressed)
+		
+		# Ensure main menu button works while paused
+	main_menu_btn.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
+	main_menu_btn.disabled = false
+	main_menu_btn.mouse_filter = Control.MOUSE_FILTER_STOP
+
+	if not main_menu_btn.pressed.is_connected(_on_main_menu_button_pressed):
+		main_menu_btn.pressed.connect(_on_main_menu_button_pressed)
+
 
 	# Put UI on top of subviewports if needed
 	layer = 10
@@ -35,3 +47,9 @@ func _on_restart_button_pressed() -> void:
 		manager.start_match()
 	else:
 		get_tree().reload_current_scene()
+
+
+func _on_main_menu_button_pressed() -> void:
+	print("Main Menu pressed")
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://Scense/main_menu.tscn")

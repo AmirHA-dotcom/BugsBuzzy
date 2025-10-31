@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bld6tk7dann67" path="res://ghost/ghost.glb" id="1_h0eoi"]
 [ext_resource type="Script" uid="uid://i2rnt8cikd7x" path="res://Scripts/GhostScript.gd" id="1_o8hm7"]
 [ext_resource type="Script" uid="uid://um06s3royfpo" path="res://Map/trap.gd" id="3_disie"]
+[ext_resource type="Script" uid="uid://dt8jgcxrq8lda" path="res://ghost/imposter.gd" id="1_o8hm7"]
+
 
 [sub_resource type="PlaceholderMesh" id="PlaceholderMesh_o8hm7"]
 
@@ -54,3 +56,5 @@ script = ExtResource("3_disie")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 3, 0)
 shape = SubResource("CapsuleShape3D_m0dbn")
+collision_mask = 3855
+
