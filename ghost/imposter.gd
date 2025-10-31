@@ -7,7 +7,7 @@ extends CharacterBody3D
 var direction := Vector3.FORWARD
 var last_position := Vector3.ZERO
 var time_since_moved := 0.0
-var gravity :=20
+var gravity := 20
 
 func _ready():
 	last_position = global_position
@@ -54,4 +54,3 @@ func _rotate_90_degrees():
 	
 	# Visually face the new direction
 	look_at(global_position - direction, Vector3.UP)
-	print("🔁 Rotated by ", 90 * choice, "° because stuck")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwm1yjg1qyvac"]
+[gd_scene load_steps=6 format=3 uid="uid://dwm1yjg1qyvac"]
 
 [ext_resource type="PackedScene" uid="uid://bld6tk7dann67" path="res://ghost/ghost.glb" id="1_h0eoi"]
 [ext_resource type="Script" uid="uid://dt8jgcxrq8lda" path="res://ghost/imposter.gd" id="1_o8hm7"]
@@ -9,18 +9,28 @@
 radius = 0.4140625
 height = 1.5656738
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_o8hm7"]
+radius = 27.0
+
 [node name="Imposter" type="CharacterBody3D"]
 script = ExtResource("1_o8hm7")
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("1_h0eoi")]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+transform = Transform3D(-0.05, 0, -4.371139e-09, 0, 0.05, 0, 4.371139e-09, 0, -0.05, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4362574, 0)
 mesh = SubResource("PlaceholderMesh_o8hm7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 2.12462, 0)
+transform = Transform3D(3.155, 0, 0, 0, 3.155, 0, 0, 0, 3.155, 0, 2.12462, 0)
 shape = SubResource("CapsuleShape3D_disie")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="PlayerDetector" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetector"]
+shape = SubResource("SphereShape3D_o8hm7")
+
+[node name="VisionRay" type="RayCast3D" parent="."]

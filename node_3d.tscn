@@ -1,16 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://6gnee1s4560g"]
+[gd_scene load_steps=5 format=3 uid="uid://6gnee1s4560g"]
 
 [ext_resource type="PackedScene" uid="uid://div5ikgjexulc" path="res://ghost/navigation_region_3d.tscn" id="1_a0tk4"]
 [ext_resource type="PackedScene" uid="uid://d01ykwgu2i8xg" path="res://Player/player.tscn" id="2_r3fl7"]
 [ext_resource type="PackedScene" uid="uid://dwm1yjg1qyvac" path="res://ghost/imposter.tscn" id="3_jka67"]
+[ext_resource type="Script" uid="uid://i2rnt8cikd7x" path="res://Scripts/GhostScript.gd" id="4_r3fl7"]
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -23.357801)
 
 [node name="NavigationRegion3D" parent="." instance=ExtResource("1_a0tk4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00033187866, -0.00045394897, 0.0004386902)
 
 [node name="Player" parent="." instance=ExtResource("2_r3fl7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.01065, 0, -22.825697)
+transform = Transform3D(-0.9962008, 0, 0.08708628, 0, 1, 0, -0.08708628, 0, -0.9962008, 37.434322, 1.841372, -43.778465)
 
 [node name="Imposter" parent="." instance=ExtResource("3_jka67")]
-transform = Transform3D(1.0000002, 0, 0, 0, 0.9999999, 0, 0, 0, 1.0000001, 36.242645, 0.9812083, -34.990265)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.528942, 6.3255334, -11.990755)
+script = ExtResource("4_r3fl7")
+speed = 6.0
+chase_speed = 9.9
+field_of_view_degrees = 90.0
+patrol_radius = 20.0
+min_move_distance = 0.1
+patrol_interval = 5.0
