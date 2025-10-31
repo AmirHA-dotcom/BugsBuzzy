@@ -2,8 +2,14 @@
 class_name Player
 extends CharacterBody3D
 
+# player2 : #00BFFF
+
+
 @export var player_id: int = 1
 @onready var camera: Camera3D = $Camera3D   # if using SpringArm, change to $"SpringArm3D/Camera3D"
+@onready var meshInstance: MeshInstance3D = $MeshInstance3D
+@onready var omniLight: OmniLight3D = $OmniLight3D
+
 
 const SPEED: float = 10.0
 const JUMP_VELOCITY: float = 4.5
@@ -26,6 +32,15 @@ func _ready() -> void:
 		camera.set_cull_mask_value(2, true)
 	elif player_id == 2:
 		camera.set_cull_mask_value(3, true)
+		var mat = meshInstance.get_surface_override_material(0)
+		mat = mat.duplicate()
+		if mat is StandardMaterial3D:
+			mat.albedo_color = Color8(0, 191, 255)
+			mat.emission = Color8(0, 191, 255)
+		meshInstance.set_surface_override_material(0, mat)
+		omniLight.light_color = Color8(0, 191, 255)
+	
+		
 
 	ability_left = max_ability_count
 
