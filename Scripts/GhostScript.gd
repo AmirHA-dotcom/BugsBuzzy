@@ -60,7 +60,8 @@ func _physics_process(delta: float) -> void:
 			_patrol_process(delta)
 		State.CHASE:
 			_chase_process(delta)
-
+	
+	print(state)
 	# gravity
 	if not is_on_floor():
 		velocity.y -= 9.8 * delta
@@ -152,6 +153,12 @@ func get_new_patrol_point() -> void:
 # Senses & signals
 # --------------------
 
+func _on_body_entered(body: Node) -> void:
+	if body is Player:                      # catches BOTH players
+		print("Player %d died!" % body.player_id)
+		body.respawn_to_checkpoint()
+		# If you have respawn:
+		# body.respawn_to_checkpoint()
 
 func can_see_player(player: Node3D) -> bool:
 	# forward is -Z in Godot transform

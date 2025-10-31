@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://0twm24si75um"]
+[gd_scene load_steps=21 format=3 uid="uid://0twm24si75um"]
 
 [ext_resource type="Script" uid="uid://cvv8xc3p5ctti" path="res://Scense/game_on.gd" id="1_ff06g"]
 [ext_resource type="PackedScene" uid="uid://vooi0k2mhmln" path="res://Map/main_navigation.tscn" id="1_jvm1d"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dlhsbpjogvpsu" path="res://Map/win_point1.tscn" id="9_s3h02"]
 [ext_resource type="PackedScene" uid="uid://0abf2fh8yu86" path="res://Map/win_point2.tscn" id="10_1f35l"]
 [ext_resource type="PackedScene" uid="uid://d2lq57pg6hrb6" path="res://Map/glasswall.tscn" id="10_jvm1d"]
+[ext_resource type="AudioStream" uid="uid://dq0n2gpa3ej17" path="res://Audio/horror-258261.ogg" id="12_vbdrn"]
 [ext_resource type="PackedScene" uid="uid://dwm1yjg1qyvac" path="res://ghost/imposter.tscn" id="13_ff06g"]
 [ext_resource type="PackedScene" uid="uid://ckerfo4jllctn" path="res://win_ui.tscn" id="14_osm6e"]
 
@@ -26,8 +27,10 @@ base_font = ExtResource("7_ndtii")
 fog_light_color = Color(0.45164657, 0.48287278, 0.53144705, 1)
 fog_density = 0.001
 volumetric_fog_enabled = true
+volumetric_fog_density = 0.1
+volumetric_fog_albedo = Color(0, 0, 0, 1)
 volumetric_fog_anisotropy = 0.04
-volumetric_fog_length = 0.15
+volumetric_fog_length = 7.0
 
 [node name="GameOn" type="Node3D"]
 
@@ -178,8 +181,8 @@ size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="Player1" parent="Control/HBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("6_3mefa")]
-transform = Transform3D(0.9996198, -0.027572708, 0, 0.027572708, 0.9996198, 0, 0, 0, 1, -80.61261, 1.0484784, -73.13725)
-collision_layer = 10
+transform = Transform3D(0.9996198, -0.027572708, 0, 0.027572708, 0.9996198, 0, 0, 0, 1, -54.380623, 1.0484784, -6.3266754)
+collision_layer = 11
 respawn_point_path = NodePath("../../../../../Respawn_Point1")
 
 [node name="Label" type="Label" parent="Control/HBoxContainer/SubViewportContainer/SubViewport"]
@@ -205,7 +208,7 @@ render_target_update_mode = 4
 
 [node name="Player2" parent="Control/HBoxContainer/SubViewportContainer2/SubViewport" instance=ExtResource("6_3mefa")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 72.21745, 0.8142977, 76.01582)
-collision_layer = 12
+collision_layer = 13
 player_id = 2
 respawn_point_path = NodePath("../../../../../Respawn_Point2")
 
@@ -275,10 +278,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.37291, 0.9404938, -77.414
 [node name="Respawn_Point2" parent="." instance=ExtResource("7_ff06g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.933426, 0.021396637, 75.25437)
 
-[node name="Imposter" parent="." instance=ExtResource("13_ff06g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.006905, 0, 53.825233)
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_vbdrn")
 volume_db = 2.08
 autoplay = true
 
@@ -302,3 +303,15 @@ transform = Transform3D(3.3053627, 0, 3.302834, 0, 6.844, 0, -3.6280906, 0, 3.00
 transform = Transform3D(-0.39891016, 0, -4.4532175, 0, 6.844001, 0, 4.891762, 0, -0.36314806, 72.41171, 1.4599051, 76.19068)
 
 [node name="Win UI" parent="Game Manager" instance=ExtResource("14_osm6e")]
+
+[node name="Imposter2" parent="." instance=ExtResource("13_ff06g")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -57.74188, 2.7773752, 0)
+
+[node name="Imposter3" parent="." instance=ExtResource("13_ff06g")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 3.4383125, -47.132362)
+
+[node name="Imposter" parent="." instance=ExtResource("13_ff06g")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 23.112762, 1.7182693, 12.275814)
+
+[node name="Imposter4" parent="." instance=ExtResource("13_ff06g")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 71.99342, 6.3255334, 66.259674)
