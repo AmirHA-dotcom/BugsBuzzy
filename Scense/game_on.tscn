@@ -1,5 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://0twm24si75um"]
-
+[gd_scene load_steps=20 format=3 uid="uid://0twm24si75um"]
 
 [ext_resource type="Script" uid="uid://cvv8xc3p5ctti" path="res://Scense/game_on.gd" id="1_ff06g"]
 [ext_resource type="PackedScene" uid="uid://vooi0k2mhmln" path="res://Map/main_navigation.tscn" id="1_jvm1d"]
@@ -7,30 +6,34 @@
 [ext_resource type="PackedScene" uid="uid://ctaknjncpv3em" path="res://Map/FallTrap.tscn" id="4_ff06g"]
 [ext_resource type="Script" uid="uid://cg2p21p8nl2x3" path="res://Scense/control.gd" id="5_osm6e"]
 [ext_resource type="PackedScene" uid="uid://d01ykwgu2i8xg" path="res://Player/player.tscn" id="6_3mefa"]
-[ext_resource type="PackedScene" path="res://Map/respawn_point1.tscn" id="6_wlx2f"]
-[ext_resource type="PackedScene" path="res://Map/respawn_point2.tscn" id="7_ff06g"]
+[ext_resource type="PackedScene" uid="uid://ce6o1tf5tscjx" path="res://Map/respawn_point1.tscn" id="6_wlx2f"]
+[ext_resource type="PackedScene" uid="uid://c724nop6j8uc1" path="res://Map/respawn_point2.tscn" id="7_ff06g"]
 [ext_resource type="FontFile" uid="uid://mlr2rkqs2j7g" path="res://Font/Roboto-VariableFont_wdth,wght.ttf" id="7_ndtii"]
 [ext_resource type="PackedScene" uid="uid://ofkk67sn0v6n" path="res://Lose_UI.tscn" id="8_3mefa"]
 [ext_resource type="PackedScene" uid="uid://ds4wxsuj6lcwo" path="res://Map/mini_map_camera.tscn" id="8_vbdrn"]
 [ext_resource type="PackedScene" uid="uid://dlhsbpjogvpsu" path="res://Map/win_point1.tscn" id="9_s3h02"]
 [ext_resource type="PackedScene" uid="uid://0abf2fh8yu86" path="res://Map/win_point2.tscn" id="10_1f35l"]
 [ext_resource type="PackedScene" uid="uid://d2lq57pg6hrb6" path="res://Map/glasswall.tscn" id="10_jvm1d"]
+[ext_resource type="PackedScene" uid="uid://dwm1yjg1qyvac" path="res://ghost/imposter.tscn" id="13_ff06g"]
 [ext_resource type="PackedScene" uid="uid://ckerfo4jllctn" path="res://win_ui.tscn" id="14_osm6e"]
-
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2dp5"]
-bg_color = Color(0.1764706, 0.16862746, 0.13333334, 1)
 
 [sub_resource type="FontVariation" id="FontVariation_q2pcm"]
 base_font = ExtResource("7_ndtii")
 
 [sub_resource type="LabelSettings" id="LabelSettings_1pmd6"]
 
+[sub_resource type="Environment" id="Environment_ff06g"]
+fog_light_color = Color(0.45164657, 0.48287278, 0.53144705, 1)
+fog_density = 0.001
+volumetric_fog_enabled = true
+volumetric_fog_anisotropy = 0.04
+volumetric_fog_length = 0.15
+
 [node name="GameOn" type="Node3D"]
 
 [node name="main_navigation" parent="." instance=ExtResource("1_jvm1d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011146545, 0.005519867, 0.004676819)
-navigation_layers = 9
+navigation_layers = 15
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.53358495, 0.84574646, 0, -0.84574646, 0.53358495, 0, 43.248062, 0)
@@ -271,6 +274,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.37291, 0.9404938, -77.414
 
 [node name="Respawn_Point2" parent="." instance=ExtResource("7_ff06g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.933426, 0.021396637, 75.25437)
+
+[node name="Imposter" parent="." instance=ExtResource("13_ff06g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.006905, 0, 53.825233)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = 2.08
+autoplay = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ff06g")
 
 [node name="Game Manager" type="Node3D" parent="."]
 script = ExtResource("1_ff06g")
