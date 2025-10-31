@@ -52,4 +52,20 @@ grow_vertical = 2
 action_mode = 0
 text = "Restart"
 
+[node name="MainMenu_Button" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = 37.5
+offset_right = 39.5
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main Menu"
+
 [connection signal="pressed" from="Control/Restart_Button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Control/MainMenu_Button" to="." method="_on_main_menu_button_pressed"]
