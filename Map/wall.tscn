@@ -9,6 +9,9 @@ albedo_texture = ExtResource("1_pgts1")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pgts1"]
 albedo_texture = ExtResource("1_pgts1")
+roughness = 0.0
+emission_enabled = true
+emission_energy_multiplier = 1.88
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5skig"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)

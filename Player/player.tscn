@@ -36,11 +36,10 @@ spot_range = 0.456
 spot_angle = 30.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.7778923, 0.6283977, 0, -0.6283977, 0.7778923, 0.056872845, 4.084956, 2.3637066)
+transform = Transform3D(1, 0, 0, 0, 0.8495798, 0.5274601, 0, -0.5274601, 0.8495798, 0.056872845, 4.5401926, 3.24865)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44058394, 0)
 layers = 9
 light_color = Color(0.78039217, 0.83137256, 0.05490196, 1)
-light_energy = 6.0
-omni_range = 10.0
+light_energy = 5.0

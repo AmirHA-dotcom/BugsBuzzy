@@ -36,7 +36,7 @@ func _ready() -> void:
 	layer = 10
 
 func show_win_screen() -> void:
-	win_label.text = GameManager.generate_hash(GameManager.groupID, "kir")
+	win_label.text = GameManager.generate_hash(GameManager.groupID, "QM2MBZYD")
 	visible = true
 	get_tree().paused = true
 

@@ -14,7 +14,7 @@ signal ability_changed(player_id: int, left: int, max: int)
 
 
 const SPEED: float = 10.0
-const JUMP_VELOCITY: float = 4.5
+const JUMP_VELOCITY: float = 7
 const ROTATION_SPEED: float = 3.0
 
 # Ability config
