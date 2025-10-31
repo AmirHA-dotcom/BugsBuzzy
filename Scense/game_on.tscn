@@ -1,22 +1,21 @@
-[gd_scene load_steps=19 format=3 uid="uid://0twm24si75um"]
+[gd_scene load_steps=20 format=3 uid="uid://0twm24si75um"]
 
+[ext_resource type="Script" uid="uid://cvv8xc3p5ctti" path="res://Scense/game_on.gd" id="1_ff06g"]
 [ext_resource type="PackedScene" uid="uid://vooi0k2mhmln" path="res://Map/main_navigation.tscn" id="1_jvm1d"]
 [ext_resource type="PackedScene" uid="uid://cq3n4hchfl5v5" path="res://Map/trap.tscn" id="3_wlx2f"]
 [ext_resource type="PackedScene" uid="uid://ctaknjncpv3em" path="res://Map/FallTrap.tscn" id="4_ff06g"]
-[ext_resource type="Script" path="res://Scense/control.gd" id="5_osm6e"]
+[ext_resource type="Script" uid="uid://cg2p21p8nl2x3" path="res://Scense/control.gd" id="5_osm6e"]
 [ext_resource type="PackedScene" uid="uid://d01ykwgu2i8xg" path="res://Player/player.tscn" id="6_3mefa"]
 [ext_resource type="PackedScene" uid="uid://ce6o1tf5tscjx" path="res://Map/respawn_point1.tscn" id="6_wlx2f"]
 [ext_resource type="PackedScene" uid="uid://c724nop6j8uc1" path="res://Map/respawn_point2.tscn" id="7_ff06g"]
 [ext_resource type="FontFile" uid="uid://mlr2rkqs2j7g" path="res://Font/Roboto-VariableFont_wdth,wght.ttf" id="7_ndtii"]
+[ext_resource type="PackedScene" uid="uid://ofkk67sn0v6n" path="res://Lose_UI.tscn" id="8_3mefa"]
 [ext_resource type="PackedScene" uid="uid://ds4wxsuj6lcwo" path="res://Map/mini_map_camera.tscn" id="8_vbdrn"]
 [ext_resource type="PackedScene" uid="uid://dlhsbpjogvpsu" path="res://Map/win_point1.tscn" id="9_s3h02"]
 [ext_resource type="PackedScene" uid="uid://0abf2fh8yu86" path="res://Map/win_point2.tscn" id="10_1f35l"]
 [ext_resource type="PackedScene" uid="uid://d2lq57pg6hrb6" path="res://Map/glasswall.tscn" id="10_jvm1d"]
 [ext_resource type="PackedScene" uid="uid://dwm1yjg1qyvac" path="res://ghost/imposter.tscn" id="13_ff06g"]
-[ext_resource type="AudioStream" uid="uid://dq0n2gpa3ej17" path="res://Audio/horror-258261.ogg" id="14_osm6e"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2dp5"]
-bg_color = Color(0.1764706, 0.16862746, 0.13333334, 1)
+[ext_resource type="PackedScene" uid="uid://ckerfo4jllctn" path="res://win_ui.tscn" id="14_osm6e"]
 
 [sub_resource type="FontVariation" id="FontVariation_q2pcm"]
 base_font = ExtResource("7_ndtii")
@@ -34,7 +33,7 @@ volumetric_fog_length = 0.15
 
 [node name="main_navigation" parent="." instance=ExtResource("1_jvm1d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011146545, 0.005519867, 0.004676819)
-navigation_layers = 9
+navigation_layers = 15
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.53358495, 0.84574646, 0, -0.84574646, 0.53358495, 0, 43.248062, 0)
@@ -155,7 +154,8 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("5_osm6e")
-start_seconds = 75
+start_seconds = 240
+lose_ui_path = NodePath("Lose UI")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 1
@@ -182,6 +182,15 @@ transform = Transform3D(0.9996198, -0.027572708, 0, 0.027572708, 0.9996198, 0, 0
 collision_layer = 10
 respawn_point_path = NodePath("../../../../../Respawn_Point1")
 
+[node name="Label" type="Label" parent="Control/HBoxContainer/SubViewportContainer/SubViewport"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+text = "Abilities: 0/0"
+
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="Control/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -200,16 +209,19 @@ collision_layer = 12
 player_id = 2
 respawn_point_path = NodePath("../../../../../Respawn_Point2")
 
-[node name="GameTimer" type="Timer" parent="Control"]
+[node name="Label" type="Label" parent="Control/HBoxContainer/SubViewportContainer2/SubViewport"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Abilities: 0/0"
 
-[node name="Panel" type="Panel" parent="Control"]
-layout_mode = 0
-offset_left = 505.0
-offset_top = -0.9999999
-offset_right = 577.0
-offset_bottom = 22.0
-scale = Vector2(2.1257308, 1.6399997)
-theme_override_styles/panel = SubResource("StyleBoxFlat_i2dp5")
+[node name="GameTimer" type="Timer" parent="Control"]
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 1
@@ -245,14 +257,11 @@ handle_input_locally = false
 render_target_update_mode = 4
 
 [node name="Mini_Map_Camera" parent="Control/SubViewportContainer3/SubViewport" instance=ExtResource("8_vbdrn")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.1786783, 141.6761, 0.27098823)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -1.8213217, 116.028244, 0.27098823)
 cull_mask = 1048568
 
-[node name="Win_Point3" parent="." instance=ExtResource("10_1f35l")]
-transform = Transform3D(3.3053627, 0, 3.302834, 0, 6.844, 0, -3.6280906, 0, 3.0090384, -80.45745, 1.7385075, -75.55416)
-
-[node name="Win_Point1" parent="." instance=ExtResource("9_s3h02")]
-transform = Transform3D(-0.39891016, 0, -4.4532175, 0, 6.844001, 0, 4.891762, 0, -0.36314806, 72.41171, 1.4599051, 76.19068)
+[node name="Lose UI" parent="Control" instance=ExtResource("8_3mefa")]
+manager_path = NodePath("..")
 
 [node name="glasswall" parent="." instance=ExtResource("10_jvm1d")]
 transform = Transform3D(-8.3558675e-08, 0, -0.99999994, 0, 2.0022514, 0, 1.9115996, 0, -4.3711385e-08, -83.35065, 0.021396637, -75.7107)
@@ -270,9 +279,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.933426, 0.021396637, 75.25
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.006905, 0, 53.825233)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_osm6e")
 volume_db = 2.08
 autoplay = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ff06g")
+
+[node name="Game Manager" type="Node3D" parent="."]
+script = ExtResource("1_ff06g")
+win_p1_path = NodePath("Win_Point1")
+win_p2_path = NodePath("Win_Point3")
+player1_path = NodePath("../Control/HBoxContainer/SubViewportContainer/SubViewport/Player1")
+player2_path = NodePath("../Control/HBoxContainer/SubViewportContainer2/SubViewport/Player2")
+label_p1_path = NodePath("../Control/HBoxContainer/SubViewportContainer/SubViewport/Label")
+label_p2_path = NodePath("../Control/HBoxContainer/SubViewportContainer2/SubViewport/Label")
+win_ui_path = NodePath("Win UI")
+
+[node name="Win_Point3" parent="Game Manager" instance=ExtResource("10_1f35l")]
+transform = Transform3D(3.3053627, 0, 3.302834, 0, 6.844, 0, -3.6280906, 0, 3.0090384, -80.45745, 1.7385075, -75.55416)
+
+[node name="Win_Point1" parent="Game Manager" instance=ExtResource("9_s3h02")]
+transform = Transform3D(-0.39891016, 0, -4.4532175, 0, 6.844001, 0, 4.891762, 0, -0.36314806, 72.41171, 1.4599051, 76.19068)
+
+[node name="Win UI" parent="Game Manager" instance=ExtResource("14_osm6e")]

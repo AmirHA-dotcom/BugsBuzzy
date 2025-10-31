@@ -6,6 +6,9 @@ var time_left: int
 @onready var timer: Timer = $GameTimer
 @onready var label: Label = $Label
 
+@export var lose_ui_path: NodePath
+@onready var lose_ui = get_node_or_null(lose_ui_path)
+
 func _ready() -> void:
 	time_left = start_seconds
 	label.text = "%02d : %02d" % [time_left / 60, time_left % 60]
@@ -21,4 +24,5 @@ func _on_tick() -> void:
 	label.text = "%02d : %02d" % [time_left / 60, time_left % 60]
 	if time_left <= 0:
 		timer.stop()
+		lose_ui.show_lose_screen()
 		print("Game Over")

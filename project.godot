@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="BugsBuzy_2"
-run/main_scene="uid://1xfvj1p7ev1x"
+run/main_scene="uid://0twm24si75um"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
