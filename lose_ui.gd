@@ -10,6 +10,7 @@ extends CanvasLayer
 
 
 func _ready() -> void:
+	visible = false
 	# Make the whole UI respond while the tree is paused
 	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 	ctrl.process_mode = Node.PROCESS_MODE_WHEN_PAUSED

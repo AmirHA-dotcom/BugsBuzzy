@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://bld6tk7dann67" path="res://ghost/ghost.glb" id="1_h0eoi"]
 [ext_resource type="Script" uid="uid://dt8jgcxrq8lda" path="res://ghost/imposter.gd" id="1_o8hm7"]
-[ext_resource type="Script" uid="uid://um06s3royfpo" path="res://Map/trap.gd" id="3_disie"]
 
 [sub_resource type="PlaceholderMesh" id="PlaceholderMesh_o8hm7"]
 
@@ -37,3 +36,4 @@ debug_color = Color(0.7631094, 0.4041384, 0.5331363, 0.41960785)
 shape = SubResource("SphereShape3D_o8hm7")
 
 [node name="VisionRay" type="RayCast3D" parent="."]
+collision_mask = 3855
