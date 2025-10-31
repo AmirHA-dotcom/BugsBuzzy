@@ -3,13 +3,9 @@ class_name Player
 
 extends CharacterBody3D
 
-<<<<<<< HEAD
 # TOP of the file (under class_name)
 signal ability_changed(player_id: int, left: int, max: int)
-=======
-# player2 : #00BFFF
 
->>>>>>> f0ad5d4f8572d2e3178bafbac4954d91118ceec3
 
 @export var player_id: int = 1
 @onready var camera: Camera3D = $Camera3D   # if using SpringArm, change to $"SpringArm3D/Camera3D"

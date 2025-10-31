@@ -1,14 +1,13 @@
 [gd_scene load_steps=18 format=3 uid="uid://0twm24si75um"]
 
-
 [ext_resource type="Script" uid="uid://cvv8xc3p5ctti" path="res://Scense/game_on.gd" id="1_ff06g"]
 [ext_resource type="PackedScene" uid="uid://vooi0k2mhmln" path="res://Map/main_navigation.tscn" id="1_jvm1d"]
 [ext_resource type="PackedScene" uid="uid://cq3n4hchfl5v5" path="res://Map/trap.tscn" id="3_wlx2f"]
 [ext_resource type="PackedScene" uid="uid://ctaknjncpv3em" path="res://Map/FallTrap.tscn" id="4_ff06g"]
 [ext_resource type="Script" uid="uid://cg2p21p8nl2x3" path="res://Scense/control.gd" id="5_osm6e"]
 [ext_resource type="PackedScene" uid="uid://d01ykwgu2i8xg" path="res://Player/player.tscn" id="6_3mefa"]
-[ext_resource type="PackedScene" path="res://Map/respawn_point1.tscn" id="6_wlx2f"]
-[ext_resource type="PackedScene" path="res://Map/respawn_point2.tscn" id="7_ff06g"]
+[ext_resource type="PackedScene" uid="uid://ce6o1tf5tscjx" path="res://Map/respawn_point1.tscn" id="6_wlx2f"]
+[ext_resource type="PackedScene" uid="uid://c724nop6j8uc1" path="res://Map/respawn_point2.tscn" id="7_ff06g"]
 [ext_resource type="FontFile" uid="uid://mlr2rkqs2j7g" path="res://Font/Roboto-VariableFont_wdth,wght.ttf" id="7_ndtii"]
 [ext_resource type="PackedScene" uid="uid://ofkk67sn0v6n" path="res://Lose_UI.tscn" id="8_3mefa"]
 [ext_resource type="PackedScene" uid="uid://ds4wxsuj6lcwo" path="res://Map/mini_map_camera.tscn" id="8_vbdrn"]
@@ -16,10 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://0abf2fh8yu86" path="res://Map/win_point2.tscn" id="10_1f35l"]
 [ext_resource type="PackedScene" uid="uid://d2lq57pg6hrb6" path="res://Map/glasswall.tscn" id="10_jvm1d"]
 [ext_resource type="PackedScene" uid="uid://ckerfo4jllctn" path="res://win_ui.tscn" id="14_osm6e"]
-
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2dp5"]
-bg_color = Color(0.1764706, 0.16862746, 0.13333334, 1)
 
 [sub_resource type="FontVariation" id="FontVariation_q2pcm"]
 base_font = ExtResource("7_ndtii")
