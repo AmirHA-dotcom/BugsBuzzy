@@ -15,3 +15,7 @@ mesh = SubResource("BoxMesh_5skig")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(4, 0, 0, 0, 5, 0, 0, 0, 1, 0, 2.5, 0)
 shape = SubResource("ConvexPolygonShape3D_5skig")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 5, 0, 0, 0, 1, 0, 2.5, 0)
+mesh = SubResource("BoxMesh_5skig")

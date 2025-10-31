@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ds4wxsuj6lcwo"]
+[gd_scene load_steps=0 format=3 uid="uid://ds4wxsuj6lcwo"]
 
 [node name="Mini_Map_Camera" type="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
