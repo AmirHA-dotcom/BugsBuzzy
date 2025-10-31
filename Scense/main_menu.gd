@@ -8,5 +8,6 @@ func _ready():
 
 func _on_start_pressed():
 	var text = name_box.text
+	GameManager.groupID = text
 	print("Typed text: ", text)  # just printing for now
 	get_tree().change_scene_to_file("res://Scense/game_on.tscn")

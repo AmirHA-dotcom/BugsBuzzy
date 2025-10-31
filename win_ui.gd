@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var ctrl: Control = $Control
 @onready var restart_btn: Button = $Control/Restart_Button
 @onready var main_menu_btn: Button = $Control/MainMenu_Button
+@onready var win_label: Label = $Control/Label
 
 
 func _ready() -> void:
@@ -34,6 +35,7 @@ func _ready() -> void:
 	layer = 10
 
 func show_win_screen() -> void:
+	win_label.text = GameManager.generate_hash(GameManager.groupID, "kir")
 	visible = true
 	get_tree().paused = true
 
