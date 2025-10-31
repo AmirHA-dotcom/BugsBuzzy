@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b3rshfxawft48" path="res://win_ui.gd" id="1_ex2s4"]
 
 [node name="Win UI" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_ex2s4")
 
 [node name="Control" type="Control" parent="."]
