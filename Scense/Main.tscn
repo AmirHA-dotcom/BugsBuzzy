@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://1xfvj1p7ev1x"]
+[gd_scene load_steps=18 format=3 uid="uid://1xfvj1p7ev1x"]
 
+[ext_resource type="Script" uid="uid://cvv8xc3p5ctti" path="res://Scense/game_on.gd" id="1_fa28u"]
 [ext_resource type="PackedScene" uid="uid://chwnd3cftco3p" path="res://Map/floor.tscn" id="1_kh0yo"]
 [ext_resource type="PackedScene" uid="uid://dd3yne4nsjp6u" path="res://Map/wall.tscn" id="2_i1awr"]
 [ext_resource type="PackedScene" uid="uid://cq3n4hchfl5v5" path="res://Map/trap.tscn" id="3_35vgc"]
@@ -11,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ds4wxsuj6lcwo" path="res://Map/mini_map_camera.tscn" id="7_b73pd"]
 [ext_resource type="PackedScene" uid="uid://d2lq57pg6hrb6" path="res://Map/glasswall.tscn" id="7_kh0yo"]
 [ext_resource type="PackedScene" uid="uid://0abf2fh8yu86" path="res://Map/win_point2.tscn" id="7_p1rog"]
+[ext_resource type="PackedScene" uid="uid://ckerfo4jllctn" path="res://win_ui.tscn" id="13_p1rog"]
 
 [sub_resource type="Environment" id="Environment_7dr2q"]
 volumetric_fog_enabled = true
@@ -150,11 +152,20 @@ render_target_update_mode = 4
 [node name="Mini_Map_Camera" parent="Control/SubViewportContainer3/SubViewport" instance=ExtResource("7_b73pd")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.1786783, 19.296812, 0.27098823)
 
-[node name="Win_Point1" parent="." instance=ExtResource("6_fa28u")]
-transform = Transform3D(4.8904705, 0, 0, 0, 4.5859547, 0, 0, 0, 3.865, 4.6601977, 1.4851382, 4.404766)
-
-[node name="Win_Point2" parent="." instance=ExtResource("7_p1rog")]
-transform = Transform3D(5.75, 0, 0, 0, 5.75, 0, 0, 0, 5.75, 7.5777917, 0.9478424, -2.2511606)
-
 [node name="glasswall" parent="." instance=ExtResource("7_kh0yo")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.485922, 0, 0)
+
+[node name="Node3D" type="Node3D" parent="."]
+script = ExtResource("1_fa28u")
+win_p1_path = NodePath("Win_Point1")
+win_p2_path = NodePath("Win_Point2")
+win_ui_path = NodePath("Win UI")
+
+[node name="Win_Point1" parent="Node3D" instance=ExtResource("6_fa28u")]
+transform = Transform3D(4.8904705, 0, 0, 0, 4.5859547, 0, 0, 0, 3.865, 4.6601977, 1.4851382, 4.404766)
+
+[node name="Win_Point2" parent="Node3D" instance=ExtResource("7_p1rog")]
+transform = Transform3D(5.75, 0, 0, 0, 5.75, 0, 0, 0, 5.75, 7.5777917, 0.9478424, -2.2511606)
+
+[node name="Win UI" parent="Node3D" instance=ExtResource("13_p1rog")]
+manager_path = NodePath("..")

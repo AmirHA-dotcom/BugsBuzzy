@@ -1,6 +1,10 @@
 # Player Controller (Godot 4.x)
 class_name Player
+
 extends CharacterBody3D
+
+# TOP of the file (under class_name)
+signal ability_changed(player_id: int, left: int, max: int)
 
 @export var player_id: int = 1
 @onready var camera: Camera3D = $Camera3D   # if using SpringArm, change to $"SpringArm3D/Camera3D"
@@ -18,6 +22,14 @@ var ability_left: int
 @export var respawn_point_path: NodePath
 var respawn_point: Node3D
 
+func _emit_ability():
+	ability_changed.emit(player_id, ability_left, max_ability_count)
+
+func reset_ability():
+	ability_left = max_ability_count
+	_emit_ability()
+
+
 func _ready() -> void:
 	# Camera layer setup
 	camera.cull_mask = 0
@@ -28,6 +40,9 @@ func _ready() -> void:
 		camera.set_cull_mask_value(3, true)
 
 	ability_left = max_ability_count
+
+	ability_left = max_ability_count
+	_emit_ability()   # <-- tell UI initial value
 
 	# get respawn point node
 	respawn_point = get_node_or_null(respawn_point_path)
@@ -94,6 +109,9 @@ func _try_spawn_ability() -> void:
 	get_tree().current_scene.add_child(instance)
 
 	ability_left -= 1
+
+	_emit_ability()   # <-- update UI
+
 	print("Player %d ability used. Remaining: %d" % [player_id, ability_left])
 
 # Cast DOWN to find the ground
