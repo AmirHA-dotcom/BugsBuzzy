@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 @export var speed: float = 6.0
-@export var chase_speed: float = 9.9
-@export var field_of_view_degrees: float = 90.0
+@export var chase_speed: float = 8
+@export var field_of_view_degrees: float = 150.0
 @export var patrol_radius: float = 20.0
 @export var min_move_distance: float = 0.1  # minimum horizontal distance to attempt movement
 @export var patrol_interval: float = 5.0
@@ -151,6 +151,8 @@ func get_new_patrol_point() -> void:
 # --------------------
 # Senses & signals
 # --------------------
+
+
 func can_see_player(player: Node3D) -> bool:
 	# forward is -Z in Godot transform
 	var robot_forward = -global_transform.basis.z.normalized()
@@ -159,9 +161,17 @@ func can_see_player(player: Node3D) -> bool:
 	if robot_forward.dot(to_player) < view_cone_dot_product:
 		return false
 
-	# raycast - set target relative to raycast node (RayCast3D expects local target)
-	vision_ray.target_position = to_local(player.global_position)
-	vision_ray.force_raycast_update()
+	# Cast multiple rays (center, left, right)
+	var angles = [0, -10, 10] # degrees offset for peripheral vision
+	for angle_deg in angles:
+		var rotated_dir = robot_forward.rotated(Vector3.UP, deg_to_rad(angle_deg))
+		var ray_target_global = global_position + rotated_dir * 20.0 # vision range (adjust)
+		# raycast - set target relative to raycast node (RayCast3D expects local target)
+		vision_ray.target_position = to_local(player.global_position)
+		vision_ray.force_raycast_update()
+		if vision_ray.is_colliding():
+			if vision_ray.get_collider() == player:
+				return true
 
 	if vision_ray.is_colliding():
 		if vision_ray.get_collider() == player:
