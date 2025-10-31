@@ -9,6 +9,7 @@ points = PackedVector3Array(1.0158731, 0.015873017, 1.0158731, -1.0158731, -0.01
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(8.8030815, 0, 0, 0, 1, 0, 0, 0, 7.551031, 0, 0, 0)
+layers = 9
 mesh = SubResource("PlaneMesh_oixiu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

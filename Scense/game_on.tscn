@@ -1,0 +1,258 @@
+[gd_scene load_steps=16 format=3 uid="uid://0twm24si75um"]
+
+[ext_resource type="PackedScene" uid="uid://vooi0k2mhmln" path="res://Map/main_navigation.tscn" id="1_jvm1d"]
+[ext_resource type="PackedScene" uid="uid://cq3n4hchfl5v5" path="res://Map/trap.tscn" id="3_wlx2f"]
+[ext_resource type="PackedScene" uid="uid://ctaknjncpv3em" path="res://Map/FallTrap.tscn" id="4_ff06g"]
+[ext_resource type="Script" path="res://Scense/control.gd" id="5_osm6e"]
+[ext_resource type="PackedScene" uid="uid://d01ykwgu2i8xg" path="res://Player/player.tscn" id="6_3mefa"]
+[ext_resource type="PackedScene" uid="uid://ce6o1tf5tscjx" path="res://Map/respawn_point1.tscn" id="6_wlx2f"]
+[ext_resource type="PackedScene" uid="uid://c724nop6j8uc1" path="res://Map/respawn_point2.tscn" id="7_ff06g"]
+[ext_resource type="FontFile" uid="uid://mlr2rkqs2j7g" path="res://Font/Roboto-VariableFont_wdth,wght.ttf" id="7_ndtii"]
+[ext_resource type="PackedScene" uid="uid://ds4wxsuj6lcwo" path="res://Map/mini_map_camera.tscn" id="8_vbdrn"]
+[ext_resource type="PackedScene" uid="uid://dlhsbpjogvpsu" path="res://Map/win_point1.tscn" id="9_s3h02"]
+[ext_resource type="PackedScene" uid="uid://0abf2fh8yu86" path="res://Map/win_point2.tscn" id="10_1f35l"]
+[ext_resource type="PackedScene" uid="uid://d2lq57pg6hrb6" path="res://Map/glasswall.tscn" id="10_jvm1d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2dp5"]
+bg_color = Color(0.1764706, 0.16862746, 0.13333334, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_q2pcm"]
+base_font = ExtResource("7_ndtii")
+
+[sub_resource type="LabelSettings" id="LabelSettings_1pmd6"]
+
+[node name="GameOn" type="Node3D"]
+
+[node name="main_navigation" parent="." instance=ExtResource("1_jvm1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011146545, 0.005519867, 0.004676819)
+navigation_layers = 9
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.53358495, 0.84574646, 0, -0.84574646, 0.53358495, 0, 43.248062, 0)
+visible = false
+
+[node name="Trap" parent="." instance=ExtResource("3_wlx2f")]
+transform = Transform3D(3.8915176, 0, 0, 0, 1, 0, 0, 0, 1, -7.8569775, 0.04603982, -8.138451)
+collision_layer = 15
+collision_mask = 7
+
+[node name="Trap2" parent="." instance=ExtResource("3_wlx2f")]
+transform = Transform3D(6.1878836e-06, 0, -0.9999997, 0, 1, 0, -141.56227, 0, -4.371137e-08, -18.551985, 0.04603982, 1.018508)
+collision_layer = 15
+collision_mask = 7
+
+[node name="Trap3" parent="." instance=ExtResource("3_wlx2f")]
+transform = Transform3D(6.1878836e-06, 0, -0.9999997, 0, 1, 0, -141.56227, 0, -4.371137e-08, -50.55895, 0.04603982, 1.018508)
+collision_layer = 15
+collision_mask = 7
+
+[node name="Trap4" parent="." instance=ExtResource("3_wlx2f")]
+transform = Transform3D(141.56227, 0, 8.742275e-08, 0, 1, 0, 1.2375767e-05, 0, -0.9999997, -28.728935, 0.04603982, 36.45348)
+collision_layer = 15
+collision_mask = 7
+
+[node name="Trap5" parent="." instance=ExtResource("3_wlx2f")]
+transform = Transform3D(141.56227, 0, 8.742275e-08, 0, 1, 0, 1.2375767e-05, 0, -0.9999997, -28.728935, 0.04603982, -47.798027)
+collision_layer = 15
+collision_mask = 7
+
+[node name="Trap6" parent="." instance=ExtResource("3_wlx2f")]
+transform = Transform3D(141.56227, 0, 8.742275e-08, 0, 1, 0, 1.2375767e-05, 0, -0.9999997, -28.728935, 0.04603982, -63.951046)
+collision_layer = 15
+collision_mask = 7
+
+[node name="FallTrap" parent="." instance=ExtResource("4_ff06g")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -26.24614, 0.016440094, -10.410862)
+collision_layer = 15
+collision_mask = 7
+
+[node name="FallTrap3" parent="." instance=ExtResource("4_ff06g")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -26.24614, 0.016440094, 19.674435)
+collision_layer = 15
+collision_mask = 7
+
+[node name="FallTrap12" parent="." instance=ExtResource("4_ff06g")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 26.787086, 0.016440094, 19.674435)
+collision_layer = 15
+collision_mask = 7
+
+[node name="FallTrap13" parent="." instance=ExtResource("4_ff06g")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 51.782814, 0.016440094, 19.674435)
+collision_layer = 15
+collision_mask = 7
+
+[node name="FallTrap14" parent="." instance=ExtResource("4_ff06g")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 48.36606, 0.016440094, 53.57137)
+collision_layer = 15
+collision_mask = 7
+
+[node name="FallTrap15" parent="." instance=ExtResource("4_ff06g")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 7.610985, 0.016440094, 3.9437828)
+collision_layer = 15
+collision_mask = 7
+
+[node name="FallTrap16" parent="." instance=ExtResource("4_ff06g")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 31.074615, 0.016440094, -19.564543)
+collision_layer = 15
+collision_mask = 7
+
+[node name="FallTrap4" parent="." instance=ExtResource("4_ff06g")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -24.453651, 0.016440094, 56.857426)
+collision_layer = 15
+collision_mask = 7
+
+[node name="FallTrap5" parent="." instance=ExtResource("4_ff06g")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -47.503284, 0.016440094, 56.857426)
+collision_layer = 15
+collision_mask = 7
+
+[node name="FallTrap6" parent="." instance=ExtResource("4_ff06g")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -47.503284, 0.016440094, -3.7085361)
+collision_layer = 15
+collision_mask = 7
+
+[node name="FallTrap7" parent="." instance=ExtResource("4_ff06g")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -47.503284, 0.016440094, -43.58503)
+collision_layer = 15
+collision_mask = 7
+
+[node name="FallTrap8" parent="." instance=ExtResource("4_ff06g")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -47.503284, 0.016440094, -68.12572)
+collision_layer = 15
+collision_mask = 7
+
+[node name="FallTrap9" parent="." instance=ExtResource("4_ff06g")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 22.75109, 0.016440094, -68.12572)
+collision_layer = 15
+collision_mask = 7
+
+[node name="FallTrap10" parent="." instance=ExtResource("4_ff06g")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 22.75109, 0.016440094, -43.919937)
+collision_layer = 15
+collision_mask = 7
+
+[node name="FallTrap11" parent="." instance=ExtResource("4_ff06g")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 57.106346, 0.016440094, -59.49238)
+collision_layer = 15
+collision_mask = 7
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("5_osm6e")
+start_seconds = 180
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Control/HBoxContainer/SubViewportContainer"]
+handle_input_locally = false
+canvas_cull_mask = 4294967293
+size = Vector2i(574, 648)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Player1" parent="Control/HBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("6_3mefa")]
+transform = Transform3D(0.9996198, -0.027572708, 0, 0.027572708, 0.9996198, 0, 0, 0, 1, -80.61261, 1.0484784, -73.13725)
+collision_layer = 10
+respawn_point_path = NodePath("../../../../../Respawn_Point1")
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Control/HBoxContainer/SubViewportContainer2"]
+handle_input_locally = false
+canvas_cull_mask = 4294967291
+size = Vector2i(574, 648)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Player2" parent="Control/HBoxContainer/SubViewportContainer2/SubViewport" instance=ExtResource("6_3mefa")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 72.21745, 0.8142977, 76.01582)
+collision_layer = 12
+player_id = 2
+respawn_point_path = NodePath("../../../../../Respawn_Point2")
+
+[node name="GameTimer" type="Timer" parent="Control"]
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 505.0
+offset_top = -0.9999999
+offset_right = 577.0
+offset_bottom = 22.0
+scale = Vector2(2.1257308, 1.6399997)
+theme_override_styles/panel = SubResource("StyleBoxFlat_i2dp5")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -38.99994
+offset_right = 33.00006
+offset_bottom = 23.0
+grow_horizontal = 2
+scale = Vector2(1.5483611, 1.479999)
+theme_override_fonts/font = SubResource("FontVariation_q2pcm")
+theme_override_font_sizes/font_size = 64
+label_settings = SubResource("LabelSettings_1pmd6")
+
+[node name="SubViewportContainer3" type="SubViewportContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -117.0
+offset_top = -227.0
+offset_right = 395.0
+offset_bottom = 285.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.46948817, 0.44451594)
+
+[node name="SubViewport" type="SubViewport" parent="Control/SubViewportContainer3"]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Mini_Map_Camera" parent="Control/SubViewportContainer3/SubViewport" instance=ExtResource("8_vbdrn")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -1.8213217, 116.028244, 0.27098823)
+cull_mask = 1048568
+
+[node name="Win_Point3" parent="." instance=ExtResource("10_1f35l")]
+transform = Transform3D(3.3053627, 0, 3.302834, 0, 6.844, 0, -3.6280906, 0, 3.0090384, -80.45745, 1.7385075, -75.55416)
+
+[node name="Win_Point1" parent="." instance=ExtResource("9_s3h02")]
+transform = Transform3D(-0.39891016, 0, -4.4532175, 0, 6.844001, 0, 4.891762, 0, -0.36314806, 72.41171, 1.4599051, 76.19068)
+
+[node name="glasswall" parent="." instance=ExtResource("10_jvm1d")]
+transform = Transform3D(-8.3558675e-08, 0, -0.99999994, 0, 2.0022514, 0, 1.9115996, 0, -4.3711385e-08, -83.35065, 0.021396637, -75.7107)
+
+[node name="glasswall2" parent="." instance=ExtResource("10_jvm1d")]
+transform = Transform3D(-8.3558675e-08, 0, -0.99999994, 0, 2.0022514, 0, 1.9115996, 0, -4.3711385e-08, 75.485886, 0.021396637, 75.90462)
+
+[node name="Respawn_Point1" parent="." instance=ExtResource("6_wlx2f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.37291, 0.9404938, -77.41435)
+
+[node name="Respawn_Point2" parent="." instance=ExtResource("7_ff06g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.933426, 0.021396637, 75.25437)

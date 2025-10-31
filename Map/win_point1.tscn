@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dlhsbpjogvpsu"]
 
-[ext_resource type="Script" path="res://Map/win_point1.gd" id="1_j5v7b"]
+[ext_resource type="Script" uid="uid://d0th05kf7s2lc" path="res://Map/win_point1.gd" id="1_j5v7b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8hbd"]
 metallic = 1.0
