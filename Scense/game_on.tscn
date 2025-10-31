@@ -40,6 +40,7 @@ navigation_layers = 15
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.53358495, 0.84574646, 0, -0.84574646, 0.53358495, 0, 43.248062, 0)
+visible = false
 
 [node name="Trap" parent="." instance=ExtResource("3_wlx2f")]
 transform = Transform3D(3.8915176, 0, 0, 0, 1, 0, 0, 0, 1, -7.8569775, 0.04603982, -8.138451)
