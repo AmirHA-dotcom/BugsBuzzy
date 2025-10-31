@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://0twm24si75um"]
+[gd_scene load_steps=19 format=3 uid="uid://0twm24si75um"]
 
 [ext_resource type="PackedScene" uid="uid://vooi0k2mhmln" path="res://Map/main_navigation.tscn" id="1_jvm1d"]
 [ext_resource type="PackedScene" uid="uid://cq3n4hchfl5v5" path="res://Map/trap.tscn" id="3_wlx2f"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://0abf2fh8yu86" path="res://Map/win_point2.tscn" id="10_1f35l"]
 [ext_resource type="PackedScene" uid="uid://d2lq57pg6hrb6" path="res://Map/glasswall.tscn" id="10_jvm1d"]
 [ext_resource type="PackedScene" uid="uid://dwm1yjg1qyvac" path="res://ghost/imposter.tscn" id="13_ff06g"]
+[ext_resource type="AudioStream" uid="uid://dq0n2gpa3ej17" path="res://Audio/horror-258261.ogg" id="14_osm6e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2dp5"]
 bg_color = Color(0.1764706, 0.16862746, 0.13333334, 1)
@@ -21,6 +22,13 @@ bg_color = Color(0.1764706, 0.16862746, 0.13333334, 1)
 base_font = ExtResource("7_ndtii")
 
 [sub_resource type="LabelSettings" id="LabelSettings_1pmd6"]
+
+[sub_resource type="Environment" id="Environment_ff06g"]
+fog_light_color = Color(0.45164657, 0.48287278, 0.53144705, 1)
+fog_density = 0.001
+volumetric_fog_enabled = true
+volumetric_fog_anisotropy = 0.04
+volumetric_fog_length = 0.15
 
 [node name="GameOn" type="Node3D"]
 
@@ -260,3 +268,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.933426, 0.021396637, 75.25
 
 [node name="Imposter" parent="." instance=ExtResource("13_ff06g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.006905, 0, 53.825233)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_osm6e")
+volume_db = 2.08
+autoplay = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ff06g")
