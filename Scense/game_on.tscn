@@ -40,7 +40,6 @@ navigation_layers = 15
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.53358495, 0.84574646, 0, -0.84574646, 0.53358495, 0, 43.248062, 0)
-visible = false
 
 [node name="Trap" parent="." instance=ExtResource("3_wlx2f")]
 transform = Transform3D(3.8915176, 0, 0, 0, 1, 0, 0, 0, 1, -7.8569775, 0.04603982, -8.138451)
@@ -181,7 +180,7 @@ size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="Player1" parent="Control/HBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("6_3mefa")]
-transform = Transform3D(0.9996198, -0.027572708, 0, 0.027572708, 0.9996198, 0, 0, 0, 1, -54.380623, 1.0484784, -6.3266754)
+transform = Transform3D(0.9996198, -0.027572708, 0, 0.027572708, 0.9996198, 0, 0, 0, 1, -80.270035, 1.0484784, -74.169174)
 collision_layer = 11
 respawn_point_path = NodePath("../../../../../Respawn_Point1")
 
@@ -312,6 +311,3 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 3.4383125, -47.13236
 
 [node name="Imposter" parent="." instance=ExtResource("13_ff06g")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 23.112762, 1.7182693, 12.275814)
-
-[node name="Imposter4" parent="." instance=ExtResource("13_ff06g")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 71.99342, 6.3255334, 66.259674)
