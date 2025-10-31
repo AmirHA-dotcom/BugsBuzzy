@@ -44,6 +44,6 @@ offset_right = 105.5
 offset_bottom = -48.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Strat Game"
+text = "Start Game"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_button_pressed"]
