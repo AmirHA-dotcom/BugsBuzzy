@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://mlr2rkqs2j7g" path="res://Font/Roboto-VariableFont_wdth,wght.ttf" id="7_35vgc"]
 [ext_resource type="PackedScene" uid="uid://ds4wxsuj6lcwo" path="res://Map/mini_map_camera.tscn" id="7_b73pd"]
 [ext_resource type="PackedScene" uid="uid://d2lq57pg6hrb6" path="res://Map/glasswall.tscn" id="7_kh0yo"]
+[ext_resource type="PackedScene" uid="uid://dlhsbpjogvpsu" path="res://Map/win_point1.tscn" id="6_fa28u"]
 [ext_resource type="PackedScene" uid="uid://0abf2fh8yu86" path="res://Map/win_point2.tscn" id="7_p1rog"]
 [ext_resource type="PackedScene" uid="uid://ckerfo4jllctn" path="res://win_ui.tscn" id="13_p1rog"]
 
@@ -86,7 +87,7 @@ render_target_update_mode = 4
 
 [node name="Player1" parent="Control/HBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("5_b73pd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0484784, 0)
-collision_layer = 2
+collision_layer = 3
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="Control/HBoxContainer"]
 layout_mode = 2
